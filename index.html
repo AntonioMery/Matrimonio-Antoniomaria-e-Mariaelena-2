@@ -278,3 +278,584 @@
 
 </body>
 </html>
+
+Se vuoi posso anche:
+
+renderlo più elegante e minimal
+
+fare il menu che scorre con effetto trasparenza
+
+trasformarlo in stile luxury (verde salvia + oro)
+
+aggiungere animazioni eleganti
+
+aggiungere conferma RSVP con form invece di WhatsApp
+
+Dimmi che stile vuoi ✨
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antoniomaria & Mariaelena - Il nostro matrimonio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: #2e7d32;
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    /* MENU */
+    nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      background: white;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 20px 30px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #2e7d32;
+      font-weight: 500;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .menu {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        display: none;
+      }
+
+      .menu.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    header {
+      padding: 120px 20px 40px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin: 0;
+    }
+
+    section { padding: 70px 20px; }
+
+    .container { max-width: 1000px; margin: auto; }
+
+    .section-title h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin-bottom: 25px;
+    }
+
+    .intro-text {
+      text-align: center;
+      font-style: italic;
+      max-width: 750px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+
+    .line {
+      width: 70px;
+      height: 2px;
+      background: #2e7d32;
+      margin: 0 auto 35px;
+    }
+
+    .story img {
+      width: 100%;
+      max-width: 420px;
+      max-height: 520px;
+      object-fit: cover;
+      margin: auto;
+      display: block;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .hotels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .big-date {
+      font-size: 2.2rem;
+      font-weight: 600;
+    }
+
+    .big-time {
+      font-size: 1.6rem;
+      margin-top: 8px;
+    }
+
+    .presso {
+      margin: 10px 0;
+      font-style: italic;
+    }
+
+    .countdown {
+      font-size: 1.8rem;
+      margin-top: 20px;
+    }
+
+    .whatsapp a {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.05rem;
+      color: white;
+      background: #25D366;
+    }
+
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      border-top: 1px solid #eee;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      section { padding: 60px 15px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <ul class="menu" id="menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#cerimonia">Cerimonia</a></li>
+    <li><a href="#rsvp">RSVP</a></li>
+  </ul>
+</nav>
+
+<header id="home">
+  <h1>Antoniomaria & Mariaelena</h1>
+</header>
+
+<section>
+  <div class="container">
+    <p class="intro-text">
+      Con grande gioia vi invitiamo a condividere con noi
+      il giorno più importante della nostra vita.
+    </p>
+    <div class="line"></div>
+    <div class="story">
+      <img src="foto1.jpg">
+    </div>
+  </div>
+</section>
+
+<section id="cerimonia">
+  <div class="container">
+    <div class="section-title">
+      <h2>Cerimonia & Ricevimento</h2>
+    </div>
+
+    <div class="hotels">
+      <div class="card">
+        <h3>La cerimonia si terrà</h3>
+        <div class="big-date">Sabato 18 Luglio 2026</div>
+        <div class="big-time">Ore 11:00</div>
+        <div class="presso">presso</div>
+        <div class="big-date">KATALEA PALACE</div>
+      </div>
+
+      <div class="card">
+        <img src="foto5.jpg">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rsvp">
+  <div class="container" style="text-align:center;">
+    <div class="section-title">
+      <h2>Conferma presenza</h2>
+    </div>
+
+    <div id="countdown" class="countdown"></div>
+
+    <div class="whatsapp">
+      <a href="https://wa.me/393297544593" target="_blank">
+        Scrivici su WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Con amore, Antoniomaria & Mariaelena</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+  }
+
+  const weddingDate = new Date("2026-07-18T11:00:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = weddingDate - now;
+    const el = document.getElementById("countdown");
+
+    if (diff <= 0) {
+      el.innerHTML = "È arrivato il giorno del nostro sì 💍";
+      return;
+    }
+
+    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    el.innerHTML = "<strong>" + days + "</strong><br>giorni al nostro sì";
+  }
+
+  updateCountdown();
+</script>
+
+</body>
+</html> aggiungi la foto
+
+Perfetto 😊
+Ti aggiungo una foto grande di copertina sotto il menu, stile hero elegante a tutta larghezza.
+
+Ho inserito:
+
+📸 Immagine di copertina full-width
+
+Effetto leggermente scurito sopra la foto
+
+Titolo centrato sopra l’immagine
+
+Layout più moderno
+
+Sostituisci tutto con questo codice (ti basterà mettere il nome corretto della foto dentro hero.jpg):
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antoniomaria & Mariaelena - Il nostro matrimonio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: #2e7d32;
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    /* MENU */
+    nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 20px 30px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #2e7d32;
+      font-weight: 500;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .menu {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        display: none;
+      }
+
+      .menu.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* HERO FOTO GRANDE */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url("hero.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      margin: 0;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-top: 15px;
+    }
+
+    section { padding: 80px 20px; }
+
+    .container { max-width: 1000px; margin: auto; }
+
+    .section-title h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin-bottom: 25px;
+    }
+
+    .hotels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .big-date {
+      font-size: 2.2rem;
+      font-weight: 600;
+    }
+
+    .big-time {
+      font-size: 1.6rem;
+      margin-top: 8px;
+    }
+
+    .presso {
+      margin: 10px 0;
+      font-style: italic;
+    }
+
+    .countdown {
+      font-size: 1.8rem;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .whatsapp a {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.05rem;
+      color: white;
+      background: #25D366;
+    }
+
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      border-top: 1px solid #eee;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero p { font-size: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <ul class="menu" id="menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#cerimonia">Cerimonia</a></li>
+    <li><a href="#rsvp">RSVP</a></li>
+  </ul>
+</nav>
+
+<!-- FOTO GRANDE INIZIALE -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Antoniomaria & Mariaelena</h1>
+    <p>18 Luglio 2026</p>
+  </div>
+</section>
+
+<section id="cerimonia">
+  <div class="container">
+    <div class="section-title">
+      <h2>Cerimonia & Ricevimento</h2>
+    </div>
+
+    <div class="hotels">
+      <div class="card">
+        <h3>La cerimonia si terrà</h3>
+        <div class="big-date">Sabato 18 Luglio 2026</div>
+        <div class="big-time">Ore 11:00</div>
+        <div class="presso">presso</div>
+        <div class="big-date">KATALEA PALACE</div>
+      </div>
+
+      <div class="card">
+        <img src="foto5.jpg" style="width:100%; border-radius:14px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rsvp">
+  <div class="container" style="text-align:center;">
+    <div class="section-title">
+      <h2>Conferma presenza</h2>
+    </div>
+
+    <div id="countdown" class="countdown"></div>
+
+    <div class="whatsapp">
+      <a href="https://wa.me/393297544593" target="_blank">
+        Scrivici su WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Con amore, Antoniomaria & Mariaelena</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+  }
+
+  const weddingDate = new Date("2026-07-18T11:00:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = weddingDate - now;
+    const el = document.getElementById("countdown");
+
+    if (diff <= 0) {
+      el.innerHTML = "È arrivato il giorno del nostro sì 💍";
+      return;
+    }
+
+    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    el.innerHTML = "<strong>" + days + "</strong><br>giorni al nostro sì";
+  }
+
+  updateCountdown();
+</script>
+
+</body>
+</html>
