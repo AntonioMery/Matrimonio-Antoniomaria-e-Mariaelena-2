@@ -16,10 +16,67 @@
       background: #ffffff;
       color: #2e7d32;
       font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    /* MENU */
+    nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      background: white;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 20px 30px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #2e7d32;
+      font-weight: 500;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .menu {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        display: none;
+      }
+
+      .menu.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
     }
 
     header {
-      padding: 80px 20px 40px;
+      padding: 120px 20px 40px;
       text-align: center;
     }
 
@@ -55,8 +112,7 @@
       margin: 0 auto 35px;
     }
 
-    .story img,
-    .hotel img {
+    .story img {
       width: 100%;
       max-width: 420px;
       max-height: 520px;
@@ -102,8 +158,7 @@
       margin-top: 20px;
     }
 
-    .whatsapp a,
-    .maps-btn {
+    .whatsapp a {
       display: inline-block;
       margin-top: 25px;
       padding: 14px 32px;
@@ -111,17 +166,7 @@
       text-decoration: none;
       font-size: 1.05rem;
       color: white;
-    }
-
-    .whatsapp a { background: #25D366; }
-    .maps-btn { background: #2e7d32; }
-
-    iframe {
-      width: 100%;
-      height: 420px;
-      border: 0;
-      border-radius: 18px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      background: #25D366;
     }
 
     footer {
@@ -139,11 +184,19 @@
 
 <body>
 
-<header>
+<nav>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <ul class="menu" id="menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#cerimonia">Cerimonia</a></li>
+    <li><a href="#rsvp">RSVP</a></li>
+  </ul>
+</nav>
+
+<header id="home">
   <h1>Antoniomaria & Mariaelena</h1>
 </header>
 
-<!-- INTRO -->
 <section>
   <div class="container">
     <p class="intro-text">
@@ -157,8 +210,7 @@
   </div>
 </section>
 
-<!-- CERIMONIA -->
-<section>
+<section id="cerimonia">
   <div class="container">
     <div class="section-title">
       <h2>Cerimonia & Ricevimento</h2>
@@ -173,70 +225,14 @@
         <div class="big-date">KATALEA PALACE</div>
       </div>
 
-      <div class="card hotel">
+      <div class="card">
         <img src="foto5.jpg">
       </div>
     </div>
   </div>
 </section>
 
-<!-- STRUTTURE -->
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2>Strutture consigliate per alloggiare</h2>
-    </div>
-
-    <p class="intro-text">
-      Gli alberghi sotto elencati si trovano a pochi metri dal Katalea Palace.
-      Per chi fosse interessato a prenotare è sufficiente scriverci indicando
-      numero di stanze e notti.<br><br>
-      Pagamento al check-in: <strong>30 € a notte</strong>.
-    </p>
-
-    <div class="hotels">
-      <div class="card hotel">
-        <h3>Kodra e Gjelbër</h3>
-        <img src="foto3.jpg">
-      </div>
-
-      <div class="card hotel">
-        <h3>Yjet Resort</h3>
-        <img src="foto4.jpg">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COME ARRIVARE -->
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2>Come arrivare</h2>
-    </div>
-
-    <p class="intro-text">
-      Katalea Palace dista circa 1 ora e 10 minuti dall’Aeroporto di Tirana ed è facilmente raggiungibile in auto lungo la strada E853.
-      La struttura dispone di un ampio parcheggio.
-    </p>
-
-    <iframe
-      src="https://www.google.com/maps?q=40.696138065699465,19.532816837859283&output=embed"
-      loading="lazy">
-    </iframe>
-
-    <div style="text-align:center;">
-      <a class="maps-btn"
-         href="https://www.google.com/maps/search/?api=1&query=40.696138065699465,19.532816837859283"
-         target="_blank">
-        Apri su Google Maps
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- RSVP -->
-<section>
+<section id="rsvp">
   <div class="container" style="text-align:center;">
     <div class="section-title">
       <h2>Conferma presenza</h2>
@@ -257,6 +253,10 @@
 </footer>
 
 <script>
+  function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+  }
+
   const weddingDate = new Date("2026-07-18T11:00:00");
 
   function updateCountdown() {
